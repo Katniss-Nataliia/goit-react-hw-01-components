@@ -1,9 +1,12 @@
-// import styled from "styled-components";
-// export const Name = styled.h2`
-// margin-top: 8px;
-// margin-bottom: 12px;
+import styled from "styled-components";
 
-// :hover{
-//     color: orange;
-// }
-// `;
+export const PofileContainer = styled.div`
+    margin:30px;
+    background-color:pink;
+
+`
+
+export const Name = styled.h2`
+    color: red
+`;
+

@@ -1,9 +1,11 @@
 
 import PropTypes from "prop-types";
 import user from "./user.json";
-// import {
-//     Name,
-// } from './ProfileCard.styled'
+import {
+    PofileContainer,
+    Name,
+    
+} from './ProfileCard.styled'
 
 const ProfileItem = ({
     avatar, 
@@ -15,14 +17,14 @@ const ProfileItem = ({
     likes,
 }) => {
     return (
-        <div className="profile">
+        <PofileContainer><div className="profile">
             <div className="description">
                 <img
                     src={avatar}
                     alt="User avatar"
                     className="avatar"
                 />
-                <p className="name">{username}</p>
+                <Name><p className="name">{username}</p></Name>
                 <p className="tag">@{tag}</p>
                 <p className="location">{location}</p>
             </div>
@@ -41,7 +43,8 @@ const ProfileItem = ({
                     <span className="quantity">{likes}</span>
                 </li>
             </ul>
-        </div>
+        </div></PofileContainer>
+        
     )
 }
 
