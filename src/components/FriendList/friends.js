@@ -1,37 +1,44 @@
-import friends from './friends.json';
+import React from "react"; // Why do we import that?
 import PropTypes from "prop-types";
+import friends from './friends.json';
 
-const FriendListItem = ({ avatar, name, isOnline }) => {
+
+const FriendListItem = ({ 
+    id, 
+    avatar, 
+    name, 
+    isOnline,
+}) => {
     return (
-        <li class="item">
-            <span class="status">{isOnline}</span>
-            <img class="avatar" src={avatar} alt="User avatar" width="48" />
-            <p class="name">{name}</p>
+        <li className="item" key={id}>
+            <span className="status">{isOnline ? 'Online' : 'Offline'}</span>
+            <img className="avatar" src={avatar} alt="User avatar" width="48" />
+            <p className="name">{name}</p>
         </li>
     )
 }
 
+FriendListItem.propTypes={
+    isOnline: PropTypes.bool,
+    avatar: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+}
 
 const FriendList = () => {
     return (
-        <ul class="friend-list">
+        <ul className="friend-list">
             {friends.map(friend=>(
                 <FriendListItem
+                    key={friend.id}
                     isOnline={friend.isOnline}
                     avatar={friend.avatar}
                     name={friend.name}
                 ></FriendListItem>
             ))}
-
-            {/* <!-- Any number of FriendListItem --> */}
         </ul>
     )
 };
 
-FriendListItem.PropTypes={
-    isOnline: PropTypes.bool,
-    avatar: PropTypes.string,
-    name: PropTypes.string.isRequired,
-}
 
 export default FriendList;
