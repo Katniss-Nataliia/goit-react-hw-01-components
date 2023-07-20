@@ -3,57 +3,70 @@ import PropTypes from "prop-types";
 import user from "./user.json";
 import {
     PofileContainer,
+    PortfolioContainer,
+    AvatartImg,
+    TagContainer,
     Name,
-    
+    TagInfo,
+    LocationContainer,
+    LocationInfo,
+    StatsMainContainer,
+    StatsElement,
+    LabelText,
+    Quantity,
 } from './ProfileCard.styled'
 
 const ProfileItem = ({
-    avatar, 
-    username, 
-    tag, 
-    location, 
-    followers, 
-    views, 
+    avatar,
+    username,
+    tag,
+    location,
+    followers,
+    views,
     likes,
 }) => {
     return (
-        <PofileContainer><div className="profile">
-            <div className="description">
-                <img
-                    src={avatar}
-                    alt="User avatar"
-                    className="avatar"
-                />
-                <Name><p className="name">{username}</p></Name>
-                <p className="tag">@{tag}</p>
-                <p className="location">{location}</p>
-            </div>
+        <PofileContainer>
+            <PortfolioContainer>
+                <AvatartImg>
+                    <img
+                        src={avatar}
+                        alt="User avatar"
+                        className="avatar"
+                        width={100}
+                        height={100}
 
-            <ul className="stats">
-                <li>
-                    <span className="label">Followers </span>
-                    <span className="quantity">{followers}</span>
-                </li>
-                <li>
-                    <span className="label">Views </span>
-                    <span className="quantity">{views}</span>
-                </li>
-                <li>
-                    <span className="label">Likes </span>
-                    <span className="quantity">{likes}</span>
-                </li>
-            </ul>
-        </div></PofileContainer>
-        
+                    /></AvatartImg>
+                <Name>{username}</Name>
+                <TagContainer><TagInfo>@{tag}</TagInfo></TagContainer>
+                <LocationContainer><LocationInfo>{location}</LocationInfo></LocationContainer>
+
+                <StatsMainContainer>
+                    <StatsElement>
+                        <LabelText>Followers </LabelText>
+                        <Quantity>{followers}</Quantity>
+                    </StatsElement>
+                    <StatsElement>
+                        <LabelText>Views </LabelText>
+                        <Quantity>{views}</Quantity>
+                    </StatsElement>
+                    <StatsElement>
+                        <LabelText>Likes </LabelText>
+                        <Quantity>{likes}</Quantity>
+                    </StatsElement>
+                </StatsMainContainer>
+            </PortfolioContainer>
+        </PofileContainer>
+
     )
 }
 
 const Profile = () => {
-return (
-    <div>
-        
+    return (
+        <div>
+
             <ProfileItem
-                avatar ={user.avatar}
+                avatar={user.avatar}
                 username={user.username}
                 tag={user.tag}
                 location={user.location}
@@ -61,9 +74,9 @@ return (
                 views={user.stats.views}
                 likes={user.stats.likes}
             ></ProfileItem>
-        
-    </div>
-)
+
+        </div>
+    )
 }
 
 ProfileItem.propTypes = {
