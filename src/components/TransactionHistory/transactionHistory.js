@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import transactions from './transactions.json';
 
 const TransactionHistory = ({ 
-    id, 
+    
     type, 
     amount, 
     currency }) => {
@@ -18,12 +18,12 @@ const TransactionHistory = ({
             </thead>
 
             <tbody>
-                <tr key={id}>
+                <tr>
                     <td>{type}</td>
                     <td> {amount}</td>
                     <td>{currency}</td>
                 </tr>
-                <tr key={id}>
+                <tr>
                     <td>{type}</td>
                     <td>{amount}</td>
                     <td>{currency}</td>
@@ -35,7 +35,6 @@ const TransactionHistory = ({
 };
 
 TransactionHistory.propTypes = {
-    id: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     amount: PropTypes.string.isRequired,
     currency: PropTypes.string.isRequired,
@@ -46,7 +45,7 @@ const Transactions = () => {
         <div>
             {transactions.map(transaction => (
                 <TransactionHistory
-                    id={transaction.id}
+                    key={transaction.id}
                     type={transaction.type}
                     amount={transaction.amount}
                     currency={transaction.currency}

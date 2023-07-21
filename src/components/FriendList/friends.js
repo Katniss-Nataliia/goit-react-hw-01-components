@@ -4,13 +4,13 @@ import friends from './friends.json';
 
 
 const FriendListItem = ({ 
-    id, 
+    
     avatar, 
     name, 
     isOnline,
 }) => {
     return (
-        <li className="item" key={id}>
+        <li className="item">
             <span className="status">{isOnline ? 'Online' : 'Offline'}</span>
             <img className="avatar" src={avatar} alt="User avatar" width="48" />
             <p className="name">{name}</p>
@@ -22,7 +22,6 @@ FriendListItem.propTypes={
     isOnline: PropTypes.bool,
     avatar: PropTypes.string,
     name: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
 }
 
 const FriendList = () => {
