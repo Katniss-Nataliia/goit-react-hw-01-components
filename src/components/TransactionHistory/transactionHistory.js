@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import transactions from './transactions.json';
+import {
+    
+    HeaderElement,
+    TransactionData,
+    TransactionDataTwo,
+} from './TransactionHistory.styled'
 
 const TransactionHistory = ({ 
     
@@ -11,22 +17,22 @@ const TransactionHistory = ({
         <table className="transaction-history">
             <thead>
                 <tr>
-                    <th>Type</th>
-                    <th>Amount</th>
-                    <th>Currency</th>
+                    <HeaderElement>Type</HeaderElement>
+                    <HeaderElement>Amount</HeaderElement>
+                    <HeaderElement>Currency</HeaderElement>
                 </tr>
             </thead>
 
             <tbody>
                 <tr>
-                    <td>{type}</td>
-                    <td> {amount}</td>
-                    <td>{currency}</td>
+                    <TransactionData>{type}</TransactionData>
+                    <TransactionData> {amount}</TransactionData>
+                    <TransactionData>{currency}</TransactionData>
                 </tr>
                 <tr>
-                    <td>{type}</td>
-                    <td>{amount}</td>
-                    <td>{currency}</td>
+                    <TransactionDataTwo>{type}</TransactionDataTwo>
+                    <TransactionDataTwo>{amount}</TransactionDataTwo>
+                    <TransactionDataTwo>{currency}</TransactionDataTwo>
                 </tr>
             </tbody>
         </table>

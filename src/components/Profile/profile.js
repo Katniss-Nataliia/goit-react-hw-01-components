@@ -4,7 +4,8 @@ import user from "./user.json";
 import {
     PofileContainer,
     PortfolioContainer,
-    AvatartImg,
+    AvatartImgContainer,
+    AvatarImg,
     TagContainer,
     Name,
     TagInfo,
@@ -28,15 +29,16 @@ const ProfileItem = ({
     return (
         <PofileContainer>
             <PortfolioContainer>
-                <AvatartImg>
-                    <img
+                <AvatartImgContainer>
+                    <AvatarImg
                         src={avatar}
                         alt="User avatar"
                         className="avatar"
                         width={100}
                         height={100}
+                        
 
-                    /></AvatartImg>
+                    /></AvatartImgContainer>
                 <Name>{username}</Name>
                 <TagContainer><TagInfo>@{tag}</TagInfo></TagContainer>
                 <LocationContainer><LocationInfo>{location}</LocationInfo></LocationContainer>

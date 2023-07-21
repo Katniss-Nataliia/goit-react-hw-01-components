@@ -1,7 +1,12 @@
 import React from "react"; // Why do we import that?
 import PropTypes from "prop-types";
 import friends from './friends.json';
-
+import {
+    FriendItem,
+    StatusIcon,
+    FriendAvatar,
+    FriendName,
+} from './Friends.styled'
 
 const FriendListItem = ({ 
     
@@ -10,11 +15,12 @@ const FriendListItem = ({
     isOnline,
 }) => {
     return (
-        <li className="item">
-            <span className="status">{isOnline ? 'Online' : 'Offline'}</span>
-            <img className="avatar" src={avatar} alt="User avatar" width="48" />
-            <p className="name">{name}</p>
-        </li>
+        <FriendItem>
+            <StatusIcon></StatusIcon><span className="status">{isOnline ? 'Online' : 'Offline'}</span>
+            <FriendAvatar src={avatar} alt="User avatar" width="48" />
+            <FriendName>{name}</FriendName>
+            
+        </FriendItem>
     )
 }
 

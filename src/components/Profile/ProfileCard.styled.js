@@ -10,13 +10,19 @@ export const PortfolioContainer = styled.div`
     margin:0 50px;
     padding-top:50px;
     background-color: white;
+    
    
 `
 
-export const AvatartImg = styled.div`
+export const AvatartImgContainer = styled.div`
     display:flex;
     justify-content:center;
     margin-bottom:30px;
+    border-rdius:50%;
+
+`
+export const AvatarImg = styled.img`
+    border-radius:50%;
 
 `
 
