@@ -1,31 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import data from './data.json';
+import {
+  StatisticsSection,
+  StatisticsTitle,
+  StatisticsData,
+  StatisticsList,
+  LabelPercentage,
+  LabelFormat,
+} from './Statistics.styled'
 
 const StatisticsItem = ({ title, stats }) => {
   return (
-    <section className="statistics">
-      <h2 className="title">Upload stats</h2>
+    <StatisticsData>
+      <LabelFormat>{title}</LabelFormat>
+      <LabelPercentage>{stats}%</LabelPercentage>
+    </StatisticsData>
 
-      <ul className="stat-list">
-        <li className="item">
-          <span className="label">{title}</span>
-          <span className="percentage">{stats}</span>
-        </li>
-        <li className="item">
-          <span className="label">{title}</span>
-          <span className="percentage">{stats}</span>
-        </li>
-        <li className="item">
-          <span className="label">{title}</span>
-          <span className="percentage">{stats}</span>
-        </li>
-        <li className="item">
-          <span className="label">{title}</span>
-          <span className="percentage">{stats}</span>
-        </li>
-      </ul>
-    </section>
   );
 };
 
@@ -36,16 +27,18 @@ StatisticsItem.propTypes = {
 
 const Statistics = () => {
   return (
-    <div>
-      {data.map(item => (
-        <StatisticsItem
-          // Use the unique 'id' as the key to help React efficiently update the list
-          key={item.id}
-          title={item.label}
-          stats={item.percentage}
-        ></StatisticsItem>
-      ))}
-    </div>
+    <StatisticsSection>
+      <StatisticsTitle>Upload stats</StatisticsTitle>
+      <StatisticsList>
+        {data.map(item => (
+          <StatisticsItem
+            key={item.id}
+            title={item.label}
+            stats={item.percentage}
+          />
+        ))}
+      </StatisticsList>
+    </StatisticsSection>
   );
 };
 

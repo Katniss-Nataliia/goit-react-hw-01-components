@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import transactions from './transactions.json';
 import {
-    
+    TableSection,
+    TransactionTable,
     HeaderElement,
     TransactionData,
     TransactionDataTwo,
@@ -14,28 +15,11 @@ const TransactionHistory = ({
     amount, 
     currency }) => {
     return (
-        <table className="transaction-history">
-            <thead>
-                <tr>
-                    <HeaderElement>Type</HeaderElement>
-                    <HeaderElement>Amount</HeaderElement>
-                    <HeaderElement>Currency</HeaderElement>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <TransactionData>{type}</TransactionData>
-                    <TransactionData> {amount}</TransactionData>
-                    <TransactionData>{currency}</TransactionData>
-                </tr>
-                <tr>
-                    <TransactionDataTwo>{type}</TransactionDataTwo>
-                    <TransactionDataTwo>{amount}</TransactionDataTwo>
-                    <TransactionDataTwo>{currency}</TransactionDataTwo>
-                </tr>
-            </tbody>
-        </table>
+    <tr>
+        <TransactionDataTwo>{type}</TransactionDataTwo>
+        <TransactionDataTwo>{amount}</TransactionDataTwo>
+        <TransactionDataTwo>{currency}</TransactionDataTwo>
+    </tr>
     )
 
 };
@@ -48,7 +32,17 @@ TransactionHistory.propTypes = {
 
 const Transactions = () => {
     return (
-        <div>
+        <TableSection>
+        <TransactionTable>
+            <thead>
+                <tr>
+                    <HeaderElement>Type</HeaderElement>
+                    <HeaderElement>Amount</HeaderElement>
+                    <HeaderElement>Currency</HeaderElement>
+                </tr>
+            </thead>
+
+            <tbody>
             {transactions.map(transaction => (
                 <TransactionHistory
                     key={transaction.id}
@@ -58,7 +52,8 @@ const Transactions = () => {
                 
                 ></TransactionHistory>
             ))}
-        </div>
+            </tbody>
+        </TransactionTable></TableSection>
     )
 }
 

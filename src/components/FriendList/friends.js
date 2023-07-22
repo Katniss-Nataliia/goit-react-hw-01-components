@@ -2,8 +2,10 @@ import React from "react"; // Why do we import that?
 import PropTypes from "prop-types";
 import friends from './friends.json';
 import {
+    FriendListContainer,
     FriendItem,
-    StatusIcon,
+    StatusIconOnline,
+    StatusIconOffline,
     FriendAvatar,
     FriendName,
 } from './Friends.styled'
@@ -16,7 +18,8 @@ const FriendListItem = ({
 }) => {
     return (
         <FriendItem>
-            <StatusIcon></StatusIcon><span className="status">{isOnline ? 'Online' : 'Offline'}</span>
+          
+            <span className="status">{isOnline ? <StatusIconOnline></StatusIconOnline> : <StatusIconOffline></StatusIconOffline>}</span>
             <FriendAvatar src={avatar} alt="User avatar" width="48" />
             <FriendName>{name}</FriendName>
             
@@ -32,7 +35,7 @@ FriendListItem.propTypes={
 
 const FriendList = () => {
     return (
-        <ul className="friend-list">
+        <FriendListContainer>
             {friends.map(friend=>(
                 <FriendListItem
                     key={friend.id}
@@ -41,7 +44,7 @@ const FriendList = () => {
                     name={friend.name}
                 ></FriendListItem>
             ))}
-        </ul>
+        </FriendListContainer>
     )
 };
 

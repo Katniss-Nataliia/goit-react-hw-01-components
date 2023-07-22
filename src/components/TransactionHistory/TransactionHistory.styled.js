@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+export const TableSection = styled.div`
+display:flex;
+justify-content:center;
+`
+export const TransactionTable = styled.table`
+margin:40px;
+table-layout: auto;
+
+
+`
 
 export const HeaderElement = styled.th`
     padding:20px 80px;
