@@ -83,4 +83,4 @@ export const Quantity = styled.p`
     padding-bottom: 5px;
     margin:3px 0px
 
-`
+` 
