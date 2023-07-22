@@ -14,7 +14,7 @@ const FriendListItem = ({
     
     avatar, 
     name, 
-    isOnline,
+    isOnline, 
 }) => {
     return (
         <FriendItem>
